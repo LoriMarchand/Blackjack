@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Play</title>
+</head>
+<body>
+	<h1>Blackjack</h1>
+
+	<h1>Player's Hand</h1>
+	{{#game.player.cards}}
+	<div>{{ face }} of {{ suit }}</div>
+	{{/game.player.cards}}
+
+
+	<h1>Dealer's Hand</h1>
+	{{#game.dealer.cards}}
+	<div>{{ face }} of {{ suit }}</div>
+	{{/game.dealer.cards}}
+
+
+	<p>The deck has {{ game.deck.size }} cards</p>
+	<form action="/hit" method="post">
+
+		<button>Hit Me</button>
+	</form>
+
+	<form action="/stand" method="post">
+		<button>Stand</button>
+	</form>
+
+	<form action="/reset" method="post">
+
+		<button>Reset Game</button>
+
+	</form>
+</body>
+</html>
