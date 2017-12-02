@@ -7,9 +7,10 @@
 <body>
 
 	<div>Time to Play</div>
+	${{game.purse.money}}
 	<form method="post" action="/bet">
-	<input required autofocus type="number" name="bet">
-		<button>Place Bet</button>
+		<input required min = "5" autofocus type="number" name="bet">
+		<button>Place Your Bet</button>
 
 	</form>
 </body>

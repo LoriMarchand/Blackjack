@@ -13,6 +13,10 @@ public class Hand {
 		cards = new  ArrayList<Card>();
 		
 	}
+	public int numberOfCardsInHand(){
+		return cards.size();
+		
+	}
 
 	public void accept(Card card) {
 		cards.add(card);

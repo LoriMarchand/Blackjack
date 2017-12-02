@@ -11,12 +11,12 @@
 	{{#game.player.cards}}
 	<div>{{ face }} of {{ suit }}</div>
 	{{/game.player.cards}}
-
-
+	<div>Player {{game.player.total}}</div>
+	<div>You have ${{ game.purse.money }}</div>
+	
 	<h1>Dealer's Hand</h1>
-	{{#game.dealer.cards}}
-	<div>{{ face }} of {{ suit }}</div>
-	{{/game.dealer.cards}}
+	{{game.dealer.cards.0.face}}
+	 {{game.dealer.cards.0.suit}}
 
 
 	<p>The deck has {{ game.deck.size }} cards</p>

@@ -21,6 +21,15 @@ public class GameController {
 	public ModelAndView defaultPage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("bet");
+		mv.addObject("game", game);
+		return mv;
+	}
+
+	@GetMapping("/Summary")
+	public ModelAndView showSummary() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("Summary");
+		mv.addObject("game", game);
 		return mv;
 	}
 
@@ -36,6 +45,7 @@ public class GameController {
 	@PostMapping("/bet")
 	public ModelAndView handleBet(int bet) {
 		game.deal();
+		game.placeBet(bet);
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("redirect:/play");
 		return mv;
@@ -46,9 +56,9 @@ public class GameController {
 	public ModelAndView handleHit() {
 		game.hitPlayer();
 		ModelAndView mv = new ModelAndView();
-	
+
 		if (game.playerHasMoreThan21()) {
-			mv.setViewName("redirect:/busted");
+			mv.setViewName("redirect:/Summary");
 		} else {
 			mv.setViewName("redirect:/play");
 		}
@@ -59,18 +69,20 @@ public class GameController {
 	public ModelAndView bustedPage() {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("busted");
+		mv.addObject("game", game);
 		return mv;
 	}
 
 	@PostMapping("/stand")
 	public ModelAndView standPage() {
 		game.hitDealer();
+		game.makePayout();
 		ModelAndView mv = new ModelAndView();
 
 		if (game.dealerHasMoreThan21()) {
 			mv.setViewName("redirect:/busted");
 		} else {
-			mv.setViewName("redirect:/play");
+			mv.setViewName("redirect:/Summary");
 		}
 		return mv;
 	}
