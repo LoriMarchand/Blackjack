@@ -58,7 +58,7 @@ public class GameController {
 		ModelAndView mv = new ModelAndView();
 
 		if (game.playerHasMoreThan21()) {
-			mv.setViewName("redirect:/Summary");
+			mv.setViewName("redirect:/busted");
 		} else {
 			mv.setViewName("redirect:/play");
 		}

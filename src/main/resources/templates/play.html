@@ -13,10 +13,9 @@
 	{{/game.player.cards}}
 	<div>Player {{game.player.total}}</div>
 	<div>You have ${{ game.purse.money }}</div>
-	
+
 	<h1>Dealer's Hand</h1>
-	{{game.dealer.cards.0.face}}
-	 {{game.dealer.cards.0.suit}}
+	{{game.dealer.cards.0.face}} {{game.dealer.cards.0.suit}}
 
 
 	<p>The deck has {{ game.deck.size }} cards</p>
@@ -32,6 +31,8 @@
 	<form action="/reset" method="post">
 
 		<button>Reset Game</button>
+
+
 
 	</form>
 </body>
